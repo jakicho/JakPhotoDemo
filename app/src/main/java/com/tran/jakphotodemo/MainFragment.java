@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tran.jakphotodemo.adapter.PhotosAdapter;
+import com.tran.jakphotodemo.database.PhotoProvider;
 import com.tran.jakphotodemo.models.Photo;
 
 import java.util.ArrayList;
@@ -21,6 +22,8 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainFragment extends Fragment {
@@ -57,5 +60,4 @@ public class MainFragment extends Fragment {
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1, GridLayoutManager.VERTICAL, false));
         }
     }
-
 }
