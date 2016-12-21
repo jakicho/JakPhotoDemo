@@ -1,6 +1,7 @@
 package com.tran.jakphotodemo;
 
 
+import android.content.ContentResolver;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class MainFragment extends Fragment {
 
     private List<Photo> mDataset;
     private PhotosAdapter mAdapter;
+    private ContentResolver mResolver;
 
     public MainFragment() {
         // Required empty public constructor
@@ -55,6 +57,5 @@ public class MainFragment extends Fragment {
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1, GridLayoutManager.VERTICAL, false));
         }
     }
-
 
 }
