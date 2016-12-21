@@ -23,7 +23,7 @@
 
         <provider
             android:name=".database.PhotoProvider"
-            android:authorities="com.tran.jakdemo.database.PhotoProvider"
+            android:authorities="com.tran.jakphotodemo.database.PhotoProvider"
             android:exported="true"
             android:multiprocess="true"/>
     </application>
