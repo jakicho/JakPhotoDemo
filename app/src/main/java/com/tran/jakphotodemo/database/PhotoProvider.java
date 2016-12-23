@@ -19,7 +19,7 @@ import java.util.HashMap;
 public class PhotoProvider extends ContentProvider {
 
     // content provider
-    static final String PROVIDER_NAME = "com.tran.jakdemo.database.PhotoProvider";
+    static final String PROVIDER_NAME = "com.tran.jakphotodemo.database.PhotoProvider";
     static final String DIRECTORY = "/cpphotos";
     static final String URL = "content://" + PROVIDER_NAME + DIRECTORY;
     public static final Uri CONTENT_URL = Uri.parse(URL);

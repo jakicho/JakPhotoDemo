@@ -92,10 +92,9 @@ public class MainFragment extends Fragment {
         mResolver = getActivity().getContentResolver();
         String[] projection = new String[]{PhotoProvider.id, PhotoProvider.title, PhotoProvider.url};
         Cursor cursor = mResolver.query(PhotoProvider.CONTENT_URL, projection, null, null, null);
-
         List<Photo> photoList = new ArrayList<>();
 
-        if(cursor.moveToFirst()) {
+        if(cursor!=null && cursor.moveToFirst()) {
             do{
                 int id = cursor.getInt(cursor.getColumnIndex(PhotoProvider.id));
                 String title = cursor.getString(cursor.getColumnIndex(PhotoProvider.title));
@@ -108,9 +107,10 @@ public class MainFragment extends Fragment {
                 photoList.add(current);
 
             } while (cursor.moveToNext());
+
+            cursor.close();
         }
 
-        cursor.close();
 
         if(!photoList.isEmpty()) mAdapter.setDataset(photoList);
         else downloadPhotos();
@@ -150,7 +150,6 @@ public class MainFragment extends Fragment {
 
                         mDataset = photos;
                         new SaveDataTask(getContext()).execute();
-
                         mAdapter.setDataset(photos);
                     }
                 });
