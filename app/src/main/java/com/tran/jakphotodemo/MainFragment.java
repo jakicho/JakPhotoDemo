@@ -122,14 +122,14 @@ public class MainFragment extends Fragment {
 
         // Network asynchronous call using Retrofit & RX
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(PhotoAPI.BASE_URL)
+                .baseUrl(getString(R.string.base_url))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         PhotoAPI photoApi = retrofit.create(PhotoAPI.class);
 
-        mObservable = photoApi.getPhotosListRX(PhotoAPI.APP_ID, PhotoAPI.ACTION);
+        mObservable = photoApi.getPhotosListRX(getString(R.string.app_id), getString(R.string.action));
 
         mSubscription = mObservable
                 .subscribeOn(Schedulers.io())
@@ -193,5 +193,4 @@ public class MainFragment extends Fragment {
             //Message.message(this.contextReference.get(), "DONE!!");
         }
     }
-
 }

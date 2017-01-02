@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">JakPhotoDemo</string>
 
+    <!-- Photo API -->
+    <string name="base_url">http://webdefence.global.blackspider.com</string>
+    <string name="app_id">AXicHcw7DsMgEADRPRFgOY4lqkTp3Ll1hxYscIBFC47kK6bKKXKOfKZ90sANnm8A9wLgeHTKisoPkUyISLkxRYGUYO-n677UTXUnde4BDw5fMJbYtUvFtLLJ6MTK4FsrWsqtUi7RoPMUrWPRjhKQrPvdZPHUqMI0x7R4fR-sHtU4dPDvA0qZMFQ</string>
+    <string name="action">allow</string>
+
+
 </resources>

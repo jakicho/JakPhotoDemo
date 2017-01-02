@@ -1,5 +1,8 @@
 package com.tran.jakphotodemo.network;
 
+import android.content.Context;
+
+import com.tran.jakphotodemo.R;
 import com.tran.jakphotodemo.models.Photo;
 
 import java.util.List;
@@ -16,11 +19,17 @@ import rx.Observable;
 @Module
 public class PhotoModule {
 
+    private final Context context;
+
+    public PhotoModule(Context context) {
+        this.context = context;
+    }
+
     @Provides
     @Singleton
     Retrofit provideRetrofit() {
         return new Retrofit.Builder()
-                .baseUrl(PhotoAPI.BASE_URL)
+                .baseUrl(context.getString(R.string.base_url))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -34,7 +43,7 @@ public class PhotoModule {
     @Provides @Singleton
     Observable<List<Photo>> providePhotosList(PhotoAPI photoApi) {
 
-        return photoApi.getPhotosListRX(PhotoAPI.APP_ID, PhotoAPI.ACTION);
+        return photoApi.getPhotosListRX(context.getString(R.string.app_id), context.getString(R.string.action));
 
     }
 }

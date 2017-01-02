@@ -2,6 +2,7 @@ package com.tran.jakphotodemo;
 
 import com.tran.jakphotodemo.network.DaggerPhotoComponent;
 import com.tran.jakphotodemo.network.PhotoComponent;
+import com.tran.jakphotodemo.network.PhotoModule;
 
 
 public class Application extends android.app.Application {
@@ -13,7 +14,9 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
         application = this;
-        photoComponent = DaggerPhotoComponent.builder().build();
+        photoComponent = DaggerPhotoComponent.builder()
+                .photoModule(new PhotoModule(getBaseContext()))
+                .build();
     }
 
     public static Application app() {
